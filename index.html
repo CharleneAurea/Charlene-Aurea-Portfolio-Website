@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charlene Aurea | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #1B1B1B;
+        color: #F5E8D8;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; 
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 96%;
+        max-width: 1800px;
+        height: 60px;
+        background: #1B1B1B;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+        padding: 0;
+        gap: 0;
+    }
+
+    nav a {
+        text-transform: uppercase;
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: #F5E8D8;
+        font-weight: 900;
+        transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+
+    .frame {
+        width: 96%;
+        max-width: 1800px;
+        margin-top: 60px;       
+        margin-bottom: 2rem;  
+        border: 1px solid #7F7F71;
+        background: #1B1B1B;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 60px - 2rem);
+    }
+
+
+    .content {
+        flex: 1;
+        overflow-y: auto;
+        padding-inline: 7rem;
+        scrollbar-width: thin;
+        scrollbar-color: #7F7F71 #1B1B1B;
+    }
+
+    .content::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .content::-webkit-scrollbar-track {
+        background: #1B1B1B;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+        background-color: #7F7F71;
+        border-radius: 4px;
+    }
+
+    section {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1.0s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+    .Greeting{
+        font-size: 4rem;
+        font-weight: 900;
+    }
+
+    h1, h2 {
+        margin-top: 0;
+    }
+
+    p{
+        font-weight: 300;
+        text-align: justify;
+    }
+
+    #home {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 2rem;
+        height: calc(100vh - 60px - 2rem);
+    }
+
+
+    #home .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+    }
+
+    #home-links {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    #home-links a img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+
+    #home .graphic {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Responsiveness - unfinished*/ 
+    @media (max-width: 1200px) {
+        .content {
+            padding-inline: 5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #home {
+            grid-template-columns: 1fr; 
+        }
+
+        .content {
+            padding-inline: 2rem;
+        }
+
+        nav {
+            width: 95%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .Greeting {
+            font-size: 2rem; 
+        }
+
+        .content {
+            padding-inline: 1rem; 
+        }
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 }); 
+
+  sections.forEach(section => observer.observe(section));
+});
+</script>
+
+</head>
+<body>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="frame">
+    <div class="content">
+        <section id="home">
+            <div class="text">
+                <span class="Greeting">Hi, I'm Charlene!</span>
+                <p>I’m an aspiring developer with a strong interest in 
+                <span style="font-weight: 600;">full-stack development and game development</span>. 
+                While I’m still building out my portfolio, I’m actively learning and experimenting with tools, 
+                frameworks, and creative coding techniques to sharpen my skills.</p>
+
+                <div id="home-links">
+                <a href="https://github.com/CharleneAurea"><img src="media/logos/394187_github_icon.png" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/charlene-aurea-813889386/"><img src="media/logos/5279114_linkedin_network_social network_linkedin logo_icon.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+
+            <div class="graphic">
+                <img src="media/meprogramming.gif" width="400" height="400" alt="Portfolio Owner Typing">
+            </div>
+        </section>
+
+        
+        <section id="about">
+            <h1>About Me</h1> <!--Interests, Skills, Hobbies - Layout needs to be improved - refer to layout sketches-->
+            <p>I like watching musicals, gaming, and reading all sorts of books. With a passion for drawing and an interest in creating programs that are useful to my peers! 
+                
+
+            </p>
+        </section>
+
+        <section id="projects">
+            <h1>Projects</h1>
+        </section>
+        
+        <section id="contact">
+            <h1>Contact</h1>
+            <p>Lorem Ipsum</p>
+        </section>
+    </div>
+</div>
+
+
+</body>
+</html>
