@@ -55,7 +55,7 @@
         max-width: 1800px;
         margin-top: 60px;       
         margin-bottom: 2rem;  
-        border: 1px solid #7F7F71;
+        border: 2px solid #7F7F71;
         background: #1B1B1B;
         overflow: hidden;
         display: flex;
@@ -96,7 +96,11 @@
         transform: translateY(0);
     }
 
-
+    .divider{
+        height: 1px; 
+        border: none; 
+        background-color: #7F7F71;
+    }
     .Greeting{
         font-size: 4rem;
         font-weight: 900;
@@ -150,8 +154,11 @@
         height: 250px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        
+        justify-content: center; 
+    }
+
+    #about{
+        align-items: center;
     }
 
     /* Responsiveness - unfinished*/ 
@@ -232,21 +239,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="media/meprogramming.gif" width="500" height="500" alt="Portfolio Owner Typing">
             </div>
         </section>
-
-        
         <section id="about">
+            <hr class="divider">
             <h1>About Me</h1> <!--Interests, Skills, Hobbies - Layout needs to be improved - refer to layout sketches-->
             <p>I like watching musicals, gaming, and reading all sorts of books. With a passion for drawing and an interest in creating programs that are useful to my peers! 
                 
 
             </p>
         </section>
-
         <section id="projects">
+            <hr class="divider">
             <h1>Projects</h1>
         </section>
         
         <section id="contact">
+            <hr class="divider">
             <h1>Contact</h1>
             <p>Lorem Ipsum</p>
         </section>
