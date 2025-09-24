@@ -88,7 +88,7 @@
     section {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 1.0s ease, transform 0.8s ease;
+        transition: opacity 1.0s ease, transform 1.0s ease;
     }
 
     section.visible {
@@ -131,20 +131,27 @@
     #home-links {
         margin-top: 1.5rem;
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     #home-links a img {
-        width: 40px;
-        height: 40px;
+        width: 2.7rem;
+        height: 2.7rem;
         object-fit: contain;
     }
 
+    #home-links a img:hover {
+        transform: scaleX(120%) scaleY(120%);
+        transition: 0.2s ease-in;
+    }
+
     #home .graphic {
+        margin-left: 7rem;
         height: 250px;
         display: flex;
         align-items: center;
         justify-content: center;
+        
     }
 
     /* Responsiveness - unfinished*/ 
@@ -221,7 +228,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <div class="graphic">
-                <img src="media/meprogramming.gif" width="400" height="400" alt="Portfolio Owner Typing">
+                <!--Find a way to make this more symmetrical to the text on the left, an alternative to the margin left at line 149 (graphic css)-->
+                <img src="media/meprogramming.gif" width="500" height="500" alt="Portfolio Owner Typing">
             </div>
         </section>
 
