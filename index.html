@@ -8,9 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
+    @font-face {
+        font-family: Akira;
+        src: url(THEBOLDFONT-FREEVERSION.otf);
+    }
     body {
         margin: 0;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', sans-serif; /*We can change this to smth else*/
         background: #1B1B1B;
         color: #F5E8D8;
         height: 100vh;
@@ -37,6 +41,8 @@
     }
 
     nav a {
+        font-size: larger;
+        font-family: Akira;
         text-transform: uppercase;
         flex: 1;
         text-align: center;
@@ -55,13 +61,42 @@
         max-width: 1800px;
         margin-top: 60px;       
         margin-bottom: 2rem;  
-        border: 2px solid #7F7F71;
+        border: 1px solid #7F7F71;
         background: #1B1B1B;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         height: calc(100vh - 60px - 2rem);
+        position: relative;
     }
+
+    .frame::before,
+    .frame::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    .frame::before {
+        display: none;
+    }
+
+    .frame::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; 
+        pointer-events: none;
+        z-index: 10;
+        background: linear-gradient(to top, rgba(27,27,27,1), rgba(27,27,27,0));
+    }   
+
 
 
     .content {
@@ -102,11 +137,13 @@
         background-color: #7F7F71;
     }
     .Greeting{
-        font-size: 4rem;
+        font-family: Akira;
+        font-size: 4.3rem;
         font-weight: 900;
     }
 
     h1, h2 {
+        font-family: Akira;
         margin-top: 0;
     }
 
@@ -125,6 +162,7 @@
 
 
     #home .text {
+        font-size: 1.25rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -157,56 +195,215 @@
         justify-content: center; 
     }
 
+    .header{
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+    }
+
     #about{
         align-items: center;
+        padding-block: 5%;
     }
+    
+    .about-text{
+        margin-inline: 3rem;
+        text-align: justify;
+        font-size: 1.5rem;   
+    }
+
+    #tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 2rem;
+        justify-items: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .tech-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid #7F7F71;
+        border-radius: 10px;
+        width: 100%;
+        min-height: 150px;
+        box-sizing: border-box;
+    }
+
+    .tech-card img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+    }
+
+    .tech-card span {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #projects {
+        padding: 5% 0;
+        position: relative; 
+        height: 1650px; 
+    }
+
+    #projects-container{
+        position: relative;
+    }
+
+    .project-card {
+        position: absolute; 
+        border: 1px solid rgba(127,127,113,0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #1B1B1B;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-1rem);
+        box-shadow: 0 10px 20px rgba(11, 11, 11, 0.5);
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .project-info {
+        padding: 0.75rem 1rem;
+        background: rgba(27,27,27,0.95);
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .project-info h2 {
+        font-family: Akira;
+        font-size: 1.4rem;
+        margin: 0;
+        font-weight: 700;
+        color: #F5E8D8;
+    }
+
+    .project-info span {
+        font-size: 0.85rem;
+        color: #B5B5A5;
+    }
+
+    #contact {
+        margin-bottom: 0;
+        padding: 5% 0;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #contact .contact-info p {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        color: #F5E8D8;
+        text-align: center;
+    }
+
+    #contact .contact-info a {
+        color: #F5E8D8;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    #contact .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    #contact .contact-links img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    #contact .contact-links img:hover {
+        transform: scale(1.2);
+    }
+
+
 
     /* Responsiveness - unfinished*/ 
     @media (max-width: 1200px) {
-        .content {
-            padding-inline: 5rem;
-        }
+    .content {
+        padding-inline: 5rem;
     }
 
-    @media (max-width: 768px) {
-        #home {
-            grid-template-columns: 1fr; 
-        }
+    #projects-container .project-card {
+        width: 60% !important;
+        left: 20% !important;
+    }
+}
 
-        .content {
-            padding-inline: 2rem;
-        }
-
-        nav {
-            width: 95%;
-        }
+@media (max-width: 768px) {
+    #home {
+        grid-template-columns: 1fr; 
     }
 
-    @media (max-width: 480px) {
-        .Greeting {
-            font-size: 2rem; 
-        }
-
-        .content {
-            padding-inline: 1rem; 
-        }
+    .content {
+        padding-inline: 2rem;
     }
+
+    nav {
+        width: 95%;
+    }
+
+    #projects-container .project-card {
+        position: relative;
+        width: 90% !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 2rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .Greeting {
+        font-size: 2rem; 
+    }
+
+    .content {
+        padding-inline: 1rem; 
+    }
+
+    #projects-container .project-card {
+        width: 100% !important;
+        margin: 1rem auto;
+    }
+}
+
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
+  const elements = document.querySelectorAll("section");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // optional: animate only once
       }
     });
   }, { threshold: 0.2 }); 
 
-  sections.forEach(section => observer.observe(section));
+  elements.forEach(el => observer.observe(el));
 });
+
 </script>
 
 </head>
@@ -227,7 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span style="font-weight: 600;">full-stack development and game development</span>. 
                 While I’m still building out my portfolio, I’m actively learning and experimenting with tools, 
                 frameworks, and creative coding techniques to sharpen my skills.</p>
-
+                
                 <div id="home-links">
                 <a href="https://github.com/CharleneAurea"><img src="media/logos/394187_github_icon.png" alt="GitHub"></a>
                 <a href="https://www.linkedin.com/in/charlene-aurea-813889386/"><img src="media/logos/5279114_linkedin_network_social network_linkedin logo_icon.png" alt="LinkedIn"></a>
@@ -239,27 +436,87 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="media/meprogramming.gif" width="500" height="500" alt="Portfolio Owner Typing">
             </div>
         </section>
+        <section><hr class="divider"></section>
         <section id="about">
-            <hr class="divider">
-            <h1>About Me</h1> <!--Interests, Skills, Hobbies - Layout needs to be improved - refer to layout sketches-->
-            <p>I like watching musicals, gaming, and reading all sorts of books. With a passion for drawing and an interest in creating programs that are useful to my peers! 
+            <div class="header"><h1 style="margin-bottom: 2rem;text-align:center; font-size: 3rem;">About Me</h1></div>
+            <div class="about-text" style=" font-weight: 500; margin-bottom: 3rem; margin-left: 9rem;">
+                I’m a developer and a passionate creative with a strong foundation in <span id="skills">Web Development</span>
                 
-
-            </p>
+            </div>
+            <div class="about-text">
+                <h1>Technologies</h1>
+                <div id="tech-grid">
+                    <div class="tech-card">
+                        <img src="media/logos/c-.png" alt="C++ Logo">
+                        <span>C++</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="media/logos/js.png" alt="JavaScript Logo">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="media/logos/java.png" alt="Java Logo">
+                        <span>Java</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="media/logos/figma.png" alt="Figma Logo">
+                        <span>Figma</span>
+                    </div>
+                </div>
+            </div>
         </section>
+        <section><hr class="divider"></section>
         <section id="projects">
-            <hr class="divider">
-            <h1>Projects</h1>
+            <div class="header">
+                <h1 style="text-align:center; font-size: 3rem;">Featured Projects</h1>
+            </div>
+            <div id="projects-container">
+                <a href="https://github.com/CharleneAurea/Geallian-Rey-Pet-Grooming-Salon-Website" target="_blank" class="project-card" style="left:10%; top: 20px; width: 700px;">
+                    <img src="media/projects/ge_rey.png" alt="Geallian Rey Pet Grooming Salon">
+                    <div class="project-info">
+                        <h2>Geallian Rey Pet Grooming Salon</h2>
+                        <span>Web Development</span>
+                    </div>
+                </a>
+
+                <a href="https://www.figma.com/proto/VAPz66D0AT2xERT5ewd0m4/ADZU-INFIRMARY?node-id=4-27&p=f&t=sQjkyhI6dzxAZ5eL-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=4%3A27" target="_blank" class="project-card" style="top: 530px; left: 50%; width: 620px;">
+                    <img src="media/projects/ADZUHMS.png" alt="ADZU Health Management System">
+                    <div class="project-info">
+                        <h2>ADZU Health Management System</h2>
+                        <span>UI/UX Design</span>
+                    </div>
+                </a>
+
+                <a href="media/projects/honglu.png" target="_blank" class="project-card" style="top: 1000px; left: 30%; width: 400px;">
+                    <img src="media/projects/honglu.png" alt="Hong Lu Artpiece">
+                    <div class="project-info">
+                        <h2>Hong Lu Artpiece</h2>
+                        <span>Digital Art</span>
+                    </div>
+                </a>
+            </div>
         </section>
-        
+        <section><hr class="divider"></section>
         <section id="contact">
-            <hr class="divider">
-            <h1>Contact</h1>
-            <p>Lorem Ipsum</p>
+            <div class="contact-info">
+                <div class="contact-links">
+                    <a href="https://github.com/CharleneAurea" target="_blank">
+                        <img src="media/logos/394187_github_icon.png" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/charlene-aurea-813889386/" target="_blank">
+                        <img src="media/logos/5279114_linkedin_network_social network_linkedin logo_icon.png" alt="LinkedIn">
+                    </a>
+                </div>
+                <p>Email: <a href="mailto:yourname@example.com">charcaurea@gmail.com</a></p>
+                <p style="font-size: 0.5; font-weight: 100;">Made with ♡ by Charlene Aurea </p>
+            </div>
         </section>
     </div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+<script src="gsap-anim.js"></script>
 </body>
 </html>
